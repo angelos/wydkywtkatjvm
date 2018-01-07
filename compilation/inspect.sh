@@ -8,6 +8,6 @@ cat $CLASSNAME.java
 # Print hex
 xxd $CLASSNAME.class
 # Print bytecode interpretation
-javap -c $CLASSNAME
+javap -c -p $CLASSNAME
 # Cleanup
 rm $CLASSNAME.class
