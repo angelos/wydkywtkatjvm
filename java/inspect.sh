@@ -6,6 +6,7 @@ echo "*** Source files ***"
 find $DIR | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
 
 # Compile
+echo "*** Compiling to .class"
 mkdir -p classes
 find $DIR -iname '*.java' | xargs javac -d classes
 
@@ -25,18 +26,41 @@ do
 	echo "********************"
 
     # Print source
+    echo "> cat $DIR/$CLASSNAME.java"
     cat $DIR/$CLASSNAME.java 
     echo
 
     # Print hex
+    echo "> xxd classes/$CLASSNAME.class"
     xxd classes/$CLASSNAME.class
     echo
 
     # Print bytecode interpretation
+    echo "> javap -c -p -classpath classes $CLASSNAME"
     javap -c -p -classpath classes $CLASSNAME
 
     echo
 done
 
+# Compile to DEX
+echo "*** Compile to dex"
+echo "> dx --dex --output=classes/$DIR.dex classes"
+dx --dex --output=classes/$DIR.dex classes
+
+echo "********************"
+echo "*** $DIR.dex ***"
+echo "********************"
+
+# Print hex
+echo "> xxd classes/$DIR.dex"
+xxd classes/$DIR.dex
+echo
+
+# Print hex
+echo "> dexdump classes/$DIR.dex"
+dexdump classes/$DIR.dex
+echo
+
+
 # Cleanup
-rm -rf classes
+# rm -rf classes
