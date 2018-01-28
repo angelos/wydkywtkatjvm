@@ -57,10 +57,10 @@ xxd classes/$DIR.dex
 echo
 
 # Print hex
-echo "> dexdump classes/$DIR.dex"
-dexdump classes/$DIR.dex
+echo "> dexdump -d classes/$DIR.dex"
+dexdump -d classes/$DIR.dex
 echo
 
 
 # Cleanup
-# rm -rf classes
+rm -rf classes
