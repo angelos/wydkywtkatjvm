@@ -1,7 +1,7 @@
 ## What's this?
-TODO Link to handout of presentation
+[![What you didn't know you wanted to know about the JVM](wydkywtkatjvm.png)](wydkywtkatjvm.pdf)
 
-It contains a testbed for the type of code inspection used in the presentation. There are a number of rather simple programs, either in Java for handling with the Java SDK and Android tools, or native c code.
+This repository contains a testbed for the type of code inspection used in the presentation. There are a number of rather simple programs, either in Java for handling with the Java SDK and Android tools, or native c code.
 
 Have fun!
 
