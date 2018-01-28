@@ -1,5 +1,5 @@
 ## What's this?
-TODO belongs with presentation
+TODO Link to handout of presentation
 
 It contains a testbed for the type of code inspection used in the presentation. There are a number of rather simple programs, either in Java for handling with the Java SDK and Android tools, or native c code.
 
@@ -25,3 +25,10 @@ The `java` directory contains a script, and a bunch of directories. The director
     sh inspect.sh SimpleAddition
 
 to compile and inspect the example program in the `SimpleAddition` directory, along with its Android equivalent.
+
+The `gc` directory contains a single example of inspecting garbage collector use. Run `run.sh` to see it in action.
+
+### Machine code examples
+Run the `inspect.sh` or `inspect_optimized.sh` script with the name of a source file to inspect the (non-)optimized code. For instance, run
+
+    sh inspect_optimized.sh unroll.c
