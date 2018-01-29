@@ -1,8 +1,9 @@
 public class GC {
 	public static void main(String[] args) {
+		long time = System.nanoTime();
 		for (int i = 0; i < 2000000; i++) {
 			if (i % 100000 == 0) {
-				System.out.println("> " + i);
+				time = reportTiming(i, time);
 			}
 			Thing t = new Thing(i);
 		}
@@ -13,5 +14,12 @@ public class GC {
 		public Thing(int i) {
 			this.i = this.j = this.k = i;
 		}
+	}
+
+	private static long reportTiming(int index, long previousTime) {
+		long currentTime = System.nanoTime();
+		long elapsed = currentTime - previousTime;
+		System.out.println(String.format("> %10d, %9d ns", index, elapsed));
+		return currentTime;
 	}
 }
